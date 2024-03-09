@@ -26,6 +26,8 @@ export async function POST(request: NextRequest) {
   const data = await getValidateMessage(body.trustedData.messageBytes)
   const frameActionBody = data.message.data.frameActionBody
 
+  console.log('frameActionBody: ', frameActionBody)
+
   const username = frameActionBody.inputText
   const buttonIndex = frameActionBody.buttonIndex
 
