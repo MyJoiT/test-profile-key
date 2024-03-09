@@ -20,6 +20,8 @@ export async function POST(request: NextRequest) {
     return htmlResponse(notFoundHtml(host))
   }
 
+  console.log('find fid is: ', fid)
+
   try {
     await getBuyPrice(fid, 1)
   } catch {
