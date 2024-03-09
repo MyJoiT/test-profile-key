@@ -21,7 +21,8 @@ export const homeHtml = (host: string) => `
   `
 
 export const friendHtml = (host: string, avatar: string, username: string, nickname: string, fid: number) => {
-  const state = { fid, username, nickname }
+  const state = JSON.stringify({ fid, username, nickname })
+  const stateEncoded = Buffer.from(state, 'binary').toString('base64')
 
   return `
     <!DOCTYPE>
@@ -31,11 +32,10 @@ export const friendHtml = (host: string, avatar: string, username: string, nickn
         <meta property="fc:frame:image" content="${ host }/og-image?encode-avatar=${ avatar }&username=${ username }&nickname=${ nickname }&t=${ new Date().valueOf() }" />
         <meta property="fc:frame:post_url" content="${ host }/tx" />
         <meta property="fc:frame:button:1" content="Back" />
-        <meta property="fc:frame:button:1:target" content="${ host }/tx" />
         <meta property="fc:frame:button:2" content="Buy" />
         <meta property="fc:frame:button:2:action" content="tx" />
         <meta property="fc:frame:button:2:target" content="${ host }/tx/data" />
-        <meta property="fc:frame:state" content="{\"counter\":1,\"idempotency_key\":\"431b8b38-eb4d-455b-b497-5f4ffb4cf061\"}" />
+        <meta property="fc:frame:state" content="${ stateEncoded }" />
       </head>
 
       <body>
