@@ -83,6 +83,9 @@ export const finishedBuyHtml = (host: string) => `
         <meta property="fc:frame:image" content="${ host }/finishedbuy.jpg" />
         <meta property="fc:frame:button:1" content="Back" />
         <meta property="fc:frame:button:1:target" content="${ host }/home" />
+        <meta property="fc:frame:button:2" content="JamFrens" />
+        <meta property="fc:frame:button:2:action" content="link" />
+        <meta property="fc:frame:button:2:target" content="https://www.jamfrens.so/" />
       </head>
 
       <body>
