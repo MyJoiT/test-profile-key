@@ -24,7 +24,7 @@ export const friendHtml = (host: string, avatar: string, username: string, nickn
     <html>
       <head>
         <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content="${ host }/og-image?encode-avatar=${ avatar }t=${ new Date().valueOf() }" />
+        <meta property="fc:frame:image" content="${ host }/og-image?encode-avatar=${ avatar }&username=${ username }&nickname=${ nickname }&t=${ new Date().valueOf() }" />
         <meta property="fc:frame:post_url" content="${ host }?next-frame=home" />
         <meta property="fc:frame:button:1" content="Back" />
         <meta property="fc:frame:button:2" content="Buy" />
