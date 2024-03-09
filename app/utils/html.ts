@@ -80,7 +80,7 @@ export const finishedBuyHtml = (host: string) => `
     <html>
       <head>
         <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content="${ host }/finishedbuy.jpg" />
+        <meta property="fc:frame:image" content="${ host }/buyfinished.jpg" />
         <meta property="fc:frame:button:1" content="Back" />
         <meta property="fc:frame:button:1:target" content="${ host }/home" />
         <meta property="fc:frame:button:2" content="JamFrens" />
