@@ -10,8 +10,6 @@ export async function POST(request: NextRequest) {
   const data = await getValidateMessage(body.trustedData.messageBytes)
   const frameActionBody = data.message.data.frameActionBody
 
-  console.log('find frameActionBody: ', frameActionBody)
-
   const username = Buffer.from(frameActionBody.inputText, 'base64').toString('binary')
   const buttonIndex = frameActionBody.buttonIndex
 
@@ -30,8 +28,6 @@ export async function POST(request: NextRequest) {
   const encodeAvatar = Buffer.from(avatar, 'binary').toString('base64');
 
   const nickname = await getNicknameByFid(fid)
-
-  console.log('find fid is: ', fid)
 
   return htmlResponse(friendHtml(host, encodeAvatar, username, nickname, fid))
 }

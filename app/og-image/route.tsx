@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   console.log('avatar is: ', avatar)
 
   const username = searchParams.get('username')
-  const nickname = searchParams.get('nickname')
+  const nickname = Buffer.from(searchParams.get('nickname') ?? '', 'base64').toString('binary')
   const fid = searchParams.get('fid')
 
   console.log('fid', fid, Number(fid))
