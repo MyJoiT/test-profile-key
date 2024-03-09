@@ -22,9 +22,9 @@ export const pngResponse = (buffer: Buffer) => {
   )
 }
 
-export const jsonResponse = (json: JSON) => {
+export const jsonResponse = (data: string) => {
   return new Response(
-    JSON.stringify(json),
+    data, 
     {
       status: 200,
       headers: { 
