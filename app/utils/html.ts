@@ -20,7 +20,7 @@ export const homeHtml = (host: string) => `
     </html>
   `
 
-export const friendHtml = (host: string, avatar: string, username: string, nickname: string) => `
+export const friendHtml = (host: string, avatar: string, username: string, nickname: string, fid: number) => `
     <!DOCTYPE>
     <html>
       <head>
@@ -31,6 +31,7 @@ export const friendHtml = (host: string, avatar: string, username: string, nickn
         <meta property="fc:frame:button:2" content="Buy" />
         <meta property="fc:frame:button:2:action" content="tx" />
         <meta property="fc:frame:button:2:target" content="${ host }/tx/data" />
+        <meta property="fc:frame:state" content="{\"fid\":${ fid },\"username\":\"${ username }\", \"nickname\":\"${ nickname }\"}" />
       </head>
 
       <body>

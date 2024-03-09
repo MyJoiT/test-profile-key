@@ -31,5 +31,5 @@ export async function POST(request: NextRequest) {
 
   const nickname = await getNicknameByFid(fid)
 
-  return htmlResponse(friendHtml(host, encodeAvatar, username, nickname))
+  return htmlResponse(friendHtml(host, encodeAvatar, username, nickname, fid))
 }
