@@ -35,7 +35,7 @@ export const friendHtml = (host: string, avatar: string, username: string, nickn
         <meta property="fc:frame:button:2" content="Buy" />
         <meta property="fc:frame:button:2:action" content="tx" />
         <meta property="fc:frame:button:2:target" content="${ host }/tx/data" />
-        <meta property="fc:frame:state" content="${ JSON.stringify(state) }" />
+        <meta property="fc:frame:state" content="{\"counter\":1,\"idempotency_key\":\"431b8b38-eb4d-455b-b497-5f4ffb4cf061\"}" />
       </head>
 
       <body>
