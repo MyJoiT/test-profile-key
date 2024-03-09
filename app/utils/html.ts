@@ -21,8 +21,10 @@ export const homeHtml = (host: string) => `
   `
 
 export const friendHtml = (host: string, avatar: string, username: string, nickname: string, fid: number) => {
+  console.log('html 1 fid is: ', fid)
   const state = JSON.stringify({ fid, username, nickname })
   const stateEncoded = Buffer.from(state, 'binary').toString('base64')
+  console.log('html 2 fid is: ', fid)
 
   return `
     <!DOCTYPE>

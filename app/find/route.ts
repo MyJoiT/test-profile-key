@@ -20,8 +20,6 @@ export async function POST(request: NextRequest) {
     return htmlResponse(notFoundHtml(host))
   }
 
-  console.log('find fid is: ', fid)
-
   try {
     await getBuyPrice(fid, 1)
   } catch {
@@ -32,6 +30,8 @@ export async function POST(request: NextRequest) {
   const encodeAvatar = Buffer.from(avatar, 'binary').toString('base64');
 
   const nickname = await getNicknameByFid(fid)
+
+  console.log('find fid is: ', fid)
 
   return htmlResponse(friendHtml(host, encodeAvatar, username, nickname, fid))
 }
