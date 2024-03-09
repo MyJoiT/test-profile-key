@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
   const data = await getValidateMessage(body.trustedData.messageBytes)
   const frameActionBody = data.message.data.frameActionBody
 
-  console.log('frameActionBody: ', frameActionBody)
+  console.log('find frameActionBody: ', frameActionBody)
 
   const username = Buffer.from(frameActionBody.inputText, 'base64').toString('binary')
   const buttonIndex = frameActionBody.buttonIndex

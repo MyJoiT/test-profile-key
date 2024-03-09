@@ -6,6 +6,11 @@ import { homeHtml, notFoundHtml } from '@/app/utils/html'
 
 export const dynamic = 'force-dynamic' // static by default, unless reading the request
 
+export async function GET(request: NextRequest) {
+  const host = request.nextUrl.origin
+  return htmlResponse(homeHtml(host))
+}
+
 export async function POST(request: NextRequest) {
   const host = request.nextUrl.origin
   const body = await new Response(request.body).json();
