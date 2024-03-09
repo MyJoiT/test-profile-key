@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server'
 import { ethers } from 'ethers'
 import { htmlResponse } from '@/app/utils/response'
 import { getValidateMessage } from '@/app/utils/farcasterAPI'
-import { homeHtml, notFoundHtml } from '@/app/utils/html'
+import { homeHtml, notFoundHtml, finishedBuyHtml } from '@/app/utils/html'
 
 export const dynamic = 'force-dynamic' // static by default, unless reading the request
 
@@ -25,5 +25,5 @@ export async function POST(request: NextRequest) {
     return htmlResponse(homeHtml(host))
   }
 
-  return htmlResponse(notFoundHtml(host))
+  return htmlResponse(finishedBuyHtml(host))
 }
