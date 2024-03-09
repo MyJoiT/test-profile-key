@@ -27,3 +27,24 @@ export const getNicknameByFid = async (fid: number) => {
   const userData = await response.json()
   return userData.data.userDataBody.value
 }
+
+export const getValidateMessage = async (messageBytes: string) => {
+  const binaryData =  new Uint8Array(
+    messageBytes.match(/.{1,2}/g)!.map(
+      (byte) => parseInt(byte, 16)
+    )
+  )
+
+  const api = 'https://nemes.farcaster.xyz:2281/v1/validateMessage'
+
+  const response = await fetch(
+    api,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/octet-stream' },
+      body: binaryData
+    }
+  )
+
+  return response.json()
+}
