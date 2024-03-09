@@ -15,7 +15,8 @@ export async function POST(request: NextRequest) {
 
   console.log('txdata frameActionBody: ', frameActionBody)
 
-  const state = Buffer.from(frameActionBody.state, 'base64').toString('binary')
+  const stateEncoded = Buffer.from(frameActionBody.state, 'base64').toString('binary')
+  const state = Buffer.from(stateEncoded, 'base64').toString('binary')
   const targetKeyOwner = JSON.parse(state)
 
   const jsonABI = [{
