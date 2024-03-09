@@ -35,7 +35,7 @@ const friendHtml = (host: string, avatar: string, username: string, nickname: st
       <head>
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content="${ host }/og-image?encode-avatar=${ avatar }t=${ new Date().valueOf() }" />
-        <meta property="fc:frame:post_url" content="${ host }?next-frame=default" />
+        <meta property="fc:frame:post_url" content="${ host }?next-frame=home" />
         <meta property="fc:frame:button:1" content="Back" />
       </head>
 
@@ -50,7 +50,7 @@ const notFoundHtml = (host: string) => `
       <head>
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content="${ host }/notfound.jpg" />
-        <meta property="fc:frame:post_url" content="${ host }?next-frame=default" />
+        <meta property="fc:frame:post_url" content="${ host }?next-frame=home" />
         <meta property="fc:frame:button:1" content="Try again" />
       </head>
 
@@ -64,7 +64,7 @@ const poolNotCreatedHtml = (host: string) => `
       <head>
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content="${ host }/notactivate.jpg" />
-        <meta property="fc:frame:post_url" content="${ host }?next-frame=default" />
+        <meta property="fc:frame:post_url" content="${ host }?next-frame=home" />
         <meta property="fc:frame:button:1" content="Try again" />
       </head>
 
@@ -118,6 +118,10 @@ export async function POST(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
 
   const nextFrame = searchParams.get('next-frame')
+
+  if(nextFrame === 'home') {
+    return htmlResponse(homeHtml(host))
+  }
 
   return htmlResponse(friendHtml(host, encodeAvatar, username, nickname))
 }
