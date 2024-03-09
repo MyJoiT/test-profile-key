@@ -8,6 +8,7 @@ export const homeHtml = (host: string) => `
         <meta property="fc:frame:input:text" content="Enter a username" /> 
         <meta property="fc:frame:post_url" content="${ host }?next-frame=result" />
         <meta property="fc:frame:button:1" content="Find Friend" />
+        <meta property="fc:frame:button:1:target" content="${ host }/find" />
       </head>
 
       <body>
@@ -25,11 +26,11 @@ export const friendHtml = (host: string, avatar: string, username: string, nickn
       <head>
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content="${ host }/og-image?encode-avatar=${ avatar }&username=${ username }&nickname=${ nickname }&t=${ new Date().valueOf() }" />
-        <meta property="fc:frame:post_url" content="${ host }?next-frame=home" />
+        <meta property="fc:frame:post_url" content="${ host }/tx" />
         <meta property="fc:frame:button:1" content="Back" />
         <meta property="fc:frame:button:2" content="Buy" />
         <meta property="fc:frame:button:2:action" content="tx" />
-        <meta property="fc:frame:button:2:target" content="${ host }/tx" />
+        <meta property="fc:frame:button:2:target" content="${ host }/tx/data" />
       </head>
 
       <body>
