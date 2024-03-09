@@ -17,8 +17,11 @@ export async function GET(request: NextRequest) {
   const nickname = searchParams.get('nickname')
   const fid = searchParams.get('fid')
 
+  console.log('fid', fid, Number(fid))
+
   const price = await getBuyPrice(Number(fid), 1)
   const priceAfterFee = await getBuyPriceAfterFee(Number(fid), 1)
+
 
   const font = {
       fileName: 'Redaction-Regular.otf',
