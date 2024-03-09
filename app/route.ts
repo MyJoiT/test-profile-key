@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
   console.log('frameActionBody: ', frameActionBody)
 
-  const username = Buffer.from(frameActionBody.inputText, 'binary').toString('base64')
+  const username = Buffer.from(frameActionBody.inputText, 'base64').toString('binary')
   const buttonIndex = frameActionBody.buttonIndex
 
   const fid = await getFidByUsername(username)
